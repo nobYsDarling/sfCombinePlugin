@@ -42,7 +42,7 @@ class Minify_Cache_APC {
      */
     public function store($id, $data)
     {
-        return apc_store($id, "{$_SERVER['REQUEST_TIME']}|{$data}", $this->_exp);
+        return apcu_store($id, "{$_SERVER['REQUEST_TIME']}|{$data}", $this->_exp);
     }
 
     /**
@@ -118,7 +118,7 @@ class Minify_Cache_APC {
         if ($this->_id === $id) {
             return true;
         }
-        $ret = apc_fetch($id);
+        $ret = apcu_fetch($id);
         if (false === $ret) {
             $this->_id = null;
             return false;

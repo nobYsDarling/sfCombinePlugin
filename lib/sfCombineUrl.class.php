@@ -121,7 +121,7 @@ class sfCombineUrl
     $key     = sha1($content);
     $check   = false;
 
-    if (function_exists('apc_store') && ini_get('apc.enabled'))
+    if (function_exists('apcu_store') && ini_get('apc.enabled'))
     {
       $cache = new sfAPCCache();
       $check = $cache->has($key);
@@ -170,7 +170,7 @@ class sfCombineUrl
     $base64 = false;
   
     // try get base64 from cache
-    if (function_exists('apc_store') && ini_get('apc.enabled'))
+    if (function_exists('apcu_store') && ini_get('apc.enabled'))
     {
       $cache = new sfAPCCache();
       $base64 = $cache->get($key);

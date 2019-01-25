@@ -40,7 +40,7 @@ EOF;
     $databaseManager = new sfDatabaseManager($this->configuration);
     $flag = true;
 
-    if (function_exists('apc_store') && ini_get('apc.enabled'))
+    if (function_exists('apcu_store') && ini_get('apc.enabled'))
     {
       $cache = new sfAPCCache();
       if (!ini_get('apc.enable_cli'))
